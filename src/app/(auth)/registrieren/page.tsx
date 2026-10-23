@@ -15,6 +15,7 @@ export default function RegisterPage() {
           <input id="password" name="password" type="password" autoComplete="new-password" minLength={10} required className={inputCls} />
         </Field>
       </ActionForm>
+      <p className="mt-4 text-xs text-neutral-500">Hinweise zur Verarbeitung Ihrer Daten finden Sie in der <Link className="underline" href="/datenschutz">Datenschutzerklärung</Link>.</p>
       <p className="mt-6 text-sm text-neutral-600">Schon registriert? <Link className="underline" href="/login">Anmelden</Link></p>
     </>
   );

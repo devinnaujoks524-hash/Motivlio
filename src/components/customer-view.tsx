@@ -74,6 +74,7 @@ export function CustomerShell({
       </div>
       {banner}
       {children}
+      <footer className="pt-4 text-xs text-neutral-500"><a href="/impressum" className="underline">Impressum</a> · <a href="/datenschutz" className="underline">Datenschutz</a></footer>
     </div>
   );
 }
