@@ -17,7 +17,14 @@ export async function proxy(request: NextRequest) {
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-  if (!url || !key) return response;
+  if (!url || !key) {
+    // Noch nicht eingerichtet: freundliche Hinweisseite statt Fehler.
+    if (pathname === "/einrichtung" || pathname.startsWith("/api/")) return response;
+    const to = request.nextUrl.clone();
+    to.pathname = "/einrichtung";
+    to.search = "";
+    return NextResponse.redirect(to);
+  }
 
   const supabase = createServerClient(url, key, {
     cookies: {
